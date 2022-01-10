@@ -1,0 +1,18 @@
+version: "2"
+services:
+  # Servidor web
+  apache:
+    container_name: php-apache
+    build: "./apache/"
+    ports:
+      - "8000:80"
+    volumes:
+      - "../src:/var/www/html"
+  mysql:
+    build: "../mysql/"
+    ports:
+      - "3306:3306"
+    volumes:
+      - "../mysql/volume:/var/lib/mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=my,123

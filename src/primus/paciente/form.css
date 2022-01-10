@@ -1,0 +1,21 @@
+body {
+    background-color: white;
+    font-size: normal 15px Arial;
+    color: black;
+}
+h1 {
+    color:black;
+    position:relative;
+    font-style: italic;
+    text-align: center;
+}
+div {
+    left:50%;
+    top:50%;
+    margin-left:-280px;
+    margin-top:-250px;
+    position:absolute;
+    width:600px;
+    height:600px;
+    color: black;
+}
