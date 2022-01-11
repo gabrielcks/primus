@@ -4,27 +4,13 @@ namespace Paciente;
 use \Primus\IPersistencia;
 use \Primus\Lib\Bd\Conexao;
 use stdClass;
+use \Primus\Lib\Bd\TableGateWay;
 
-class PacienteTable implements IPersistencia
+class PacienteTable extends TableGateWay implements IPersistencia
 {
-    public $objPdo;
-    public $conexao;
-
-    public function __construct()
-    {
-        $this->conexao = new Conexao;
-        $this->objPdo = $this->conexao->conect();
-
-        if (is_a($this->objPdo, 'PDO') !== true) {
-            print_r("ERRO!! conexão com o banco de dados, OBJ PDO com valor não esperado !! ");
-            die;
-        }
-    }
-
     public function delet($idNomeArquivo):bool
     {
-        $this->objPdo->query("DELETE FROM paciente WHERE id = '{$idNomeArquivo}'");
-        return true;  
+        return $this->objPdo->exec("DELETE FROM paciente WHERE id = '{$idNomeArquivo}'");  
     }
 
     public function save(array $dados):bool

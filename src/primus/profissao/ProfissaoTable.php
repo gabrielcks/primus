@@ -2,22 +2,10 @@
 namespace Profissao;
 use Primus\IPersistencia;
 use \Primus\Lib\Bd\Conexao;
+use \Primus\Lib\Bd\TableGateWay;
 
-class ProfissaoTable implements IPersistencia
+class ProfissaoTable extends TableGateWay implements IPersistencia
 {
-    public $conexao;
-    public $objPdo;
-
-    public function __construct()
-    {
-        $this->conexao = new Conexao;
-        $this->objPdo = $this->conexao->conect();
-
-        if (is_a($this->objPdo, 'PDO') !== true) {
-            print_r("ERRO!! conexão com o banco de dados, OBJ PDO com valor não esperado !! ");
-            die;
-        }
-    }
 
     public function delet($id):bool
     {

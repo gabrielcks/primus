@@ -14,7 +14,7 @@ class ProfissaoController
     public function __construct()
     {
         $this->viewData = new stdClass();
-        $this->profissao = new Profissao(new ProfissaoFile);
+        $this->profissao = new Profissao(new ProfissaoTable);
     }
 
     public function getView()
