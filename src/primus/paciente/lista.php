@@ -4,8 +4,6 @@
 <table>
     <a class="waves-effect waves-light btn-small" href="index.php?acao=carregarFormulario">Novo</a> 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a class="waves-effect waves-light btn-small" href="index.php?acao=FormularioProfissao">Cadastro de profissão</a> 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a class="waves-effect waves-light btn-small" href="./index.php">Listar todos</a>
     <br>
     <thead> <form action="index.php" method="get">

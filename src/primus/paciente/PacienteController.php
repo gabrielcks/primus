@@ -20,7 +20,7 @@ class PacienteController
     public function __construct()
     {
         $this->viewData = new stdClass();
-        $this->paciente = new Paciente(new PacienteTable);
+        $this->paciente = new Paciente(new PacienteFile);
         $this->profissao = new ProfissaoTable;;
     }
 

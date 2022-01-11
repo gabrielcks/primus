@@ -8,5 +8,5 @@ $acao = $_REQUEST['acao'];
 $acao = (empty($acao) || !method_exists($profissaoController,$acao)) ? 'listar': $acao;
 $profissaoController->$acao();
 $profissao = $profissaoController->viewData->listaDeProfissao;
-include '../teste.php';
+include '../nav.php';
 include 'index.phtml';

@@ -4,17 +4,17 @@ namespace Profissao;
 use Profissao\ProfissaoTable;
 use Profissao\ProfissaoFile;
 use stdClass;
-use FFI\Exception;
+use Exception;
 
 class ProfissaoController
 {
-    public $bdProfissao;
+    public $profissao;
     private $view = 'lista';
 
     public function __construct()
     {
         $this->viewData = new stdClass();
-        $this->bdProfissao = new Profissao(new ProfissaoTable);
+        $this->profissao = new Profissao(new ProfissaoFile);
     }
 
     public function getView()
@@ -24,20 +24,20 @@ class ProfissaoController
 
     public function listar()
     {
-        $this->viewData->listaDeProfissao = $this->bdProfissao->buscarTodos();
+        $this->viewData->listaDeProfissao = $this->profissao->buscarTodos();
     }
 
     public function buscar()
     {
         $dadosProfissao = $_REQUEST;
-        $this->viewData->listaDeProfissao = $this->bdProfissao->buscar($dadosProfissao);
+        $this->viewData->listaDeProfissao = $this->profissao->buscar($dadosProfissao);
     }
 
     public function deletar()
     {
         $idNomeArquivo = $_GET['idProfissao'];
         if (!empty($idNomeArquivo)) {
-            $this->bdProfissao->delete($idNomeArquivo);
+            $this->profissao->delete($idNomeArquivo);
         }
         return $this->listar();
     }
@@ -45,8 +45,8 @@ class ProfissaoController
     public function carregarFormularioPreenchido()
     {
         $this->view = 'formProfissao';
-        $dadosProfissao = $_REQUEST;
-        $this->viewData->listaDeProfissao = $this->bdProfissao->get($dadosProfissao);
+        $idProfissao = filter_var($_REQUEST['nomeDoArquivo'], FILTER_SANITIZE_STRING);
+        $this->viewData->listaDeProfissao = $this->profissao->get($idProfissao);
     }
 
     public function FormularioProfissao()
@@ -57,15 +57,14 @@ class ProfissaoController
     public function salvar()
     {
         $dadosProfissao = $_REQUEST;
-        $this->bdProfissao->hidratarObjeto($dadosProfissao);
+        $this->profissao->hidratarObjeto($dadosProfissao);
 
         try { 
-            if ($this->bdProfissao->save($this->bdProfissao) != false) {
-                $this->viewData->listaDeProfissao = $this->bdProfissao->buscarTodos();
+            if (!$this->profissao->save($this->profissao)) {
+                throw new Exception('ERRO ao salvar paciente!'); 
+            }
 
-            } else {
-                throw new Exception('ERRO ao salvar paciente!');;
-            } 
+            $this->viewData->listaDeProfissao = $this->profissao->buscarTodos();
 
         } catch (Exception  $e) {
             echo $e->getMessage();    

@@ -3,6 +3,11 @@ body {
     font-size: normal 15px Arial;
     color: black;
 }
+
+nav {
+    background-color: #2979ff;
+}
+
 h1 {
     color:black;
     position:relative;

@@ -32,10 +32,10 @@ class Profissao
         ];
     }
 
-    public function get($idNomeArquivo)
-    {       
-        $this->pacientePersist->get($idNomeArquivo);
-        return $this->pacientePersist->get($idNomeArquivo);
+    public function get($id)
+    {      
+        $this->pacientePersist->get($id);
+        return $this->pacientePersist->get($id);
     }
 
     public function buscarTodos()
@@ -43,9 +43,9 @@ class Profissao
         return $this->pacientePersist->getAll();
     }
 
-    public function delete($idNomeArquivo)
+    public function delete($id)
     {
-        $this->pacientePersist->delet($idNomeArquivo);
+        $this->pacientePersist->delet($id);
     }
 
     public function save(Profissao $profissao)
@@ -59,8 +59,8 @@ class Profissao
         }
     }
 
-    public function buscar($dadosPaciente)
+    public function buscar($dadosProfissao)
     {
-       return $this->pacientePersist->find($dadosPaciente);
+       return $this->pacientePersist->find($dadosProfissao);
     }
 }

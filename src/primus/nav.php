@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script type="text/javascript" src="../lib/jquery/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/primus/paciente/form.css">
 </head>
 <body>
 
     <nav class="nav-wrapper">
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-                <a href="/primus/teste.php">
+                <a href="/primus/index.php">
                     Home
                 </a>
             </li>

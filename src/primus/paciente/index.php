@@ -8,5 +8,5 @@ $acao = (empty($acao) || !method_exists($pacienteController,$acao)) ? 'listar': 
 $pacienteController->$acao();
 $paciente = $pacienteController->viewData->paciente;
 $profissao = $pacienteController->viewData->profissao;
-include '../teste.php';
+include '../nav.php';
 include 'index.phtml';

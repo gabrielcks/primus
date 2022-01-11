@@ -49,9 +49,9 @@ class ProfissaoTable implements IPersistencia
         }
     }
 
-    public function get($dado):object
+    public function get($id):object
     {
-        $result = $this->objPdo->query("SELECT * FROM profissao WHERE id = '{$dado['nomeDoArquivo']}' ");
+        $result = $this->objPdo->query("SELECT * FROM profissao WHERE id = '{$id}' ");
         return $result->fetchObject();
     }
 
